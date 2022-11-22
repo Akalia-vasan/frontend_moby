@@ -50,6 +50,9 @@
                                             <input type="number" class="form-control" name="digits" id="exampleInputPassword1" required pattern="[0-9]">
                                         </div>
                                         <div class="form-group">
+                                            <label class="error" style="color:{{Session::get('status') ? Session::get('status')['color'] : ''}}">{{Session::get('status') ? Session::get('status')['status'] : ''}}</label>
+                                        </div>
+                                        <div class="form-group">
                                             <div id="worked">00:00</div>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Submit</button>

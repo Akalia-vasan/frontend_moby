@@ -11,8 +11,22 @@ class CodeController extends Controller
         $response = Http::post(api_url('code/create'), [
             'digits' => $request->digits,
         ])->json();
-
-        return redirect('tap');
+        
+        if($response == null)
+        {
+            $output = [
+                'status' => 'fail',
+                'color' => 'red'
+            ];
+        }
+        else
+        {
+            $output = [
+                'status' => 'success',
+                'color' => 'green'
+            ];
+        }
+        return redirect('tap')->with('status', $output);
     }
 
 
